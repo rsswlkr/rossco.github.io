@@ -114,7 +114,7 @@
         <div class="row">
           <div class="col-12 col-lg-8 offset-lg-2">
             <h1>Industrial Performance and Scalability</h1>
-            <p class="fs-18 opacity-70">Graphene is capable of 100,000 TPS when we pay for the network to go with it</p>
+            <p class="fs-18 opacity-70">Graphene is capable of 100,000 TPS across a global network infrastructure</p>
           </div>
         </div>
       </div>
@@ -137,10 +137,10 @@
 		</section>
       <section class="section section-x">
         <div class="container">
-          <p>High performance blockchain technology is necessary for cryptocurrencies and smart contract platforms to provide a viable alternative to existing financial platforms. BitShares is designed from the ground up to process more transactions every second than VISA and MasterCard combined. With Delegated Proof of Stake, the BitShares network can confirm transactions in an average of just 1 second, limited only by the speed of light.</p>
+          <p>High performance and scalability are neccessary in blockchain technology to deliver the required speed for cryptocurrencies and smart contract platforms, and provide a viable alternative to existing financial platforms. BitShares is designed from the ground up to process more transactions every second than VISA and MasterCard combined. With Delegated Proof of Stake, the BitShares network can confirm transactions in an average of just 1 second, limited only by the speed of light.</p>
 		  <br />
-		  <h4>Overview</h4>
-		  <p>To achieve this industry-leading performance, BitShares has borrowed <a href="http://martinfowler.com/articles/lmax.html">lessons learned from the LMAX Exchange</a>, which is able to process 6 million transactions per second. Among these lessons are the following key points:</p>
+		  <h2>BitShares Performance Overview</h2>
+		  <p>To achieve this industry-leading scalability, BitShares has borrowed <a href="http://martinfowler.com/articles/lmax.html">lessons learned from the LMAX Exchange</a>, which is able to process 6 million transactions per second. Among these lessons are the following key points:</p>
 			<ol class="ml-50">
 				<li>Keep everything in memory.</li>
 				<li>Keep the core business logic in a single thread.</li>
@@ -148,16 +148,16 @@
 				<li>Divide validation into state-dependent and state-independent checks.</li>
 				<li>Use an object oriented data model.</li>
 			</ol>
-		  			<p>By following these simple rules, BitShares is able to process 100,000 transactions per second without any significant
+		  			<p>By following these simple rules, BitShares has scalability upto 100,000 transactions per second without any significant
 			effort devoted to optimization. Future optimizations are expected to bring the performance of BitShares to levels similar to
 			LMAX.</p>
-			<p>It should be noted that the performance achieved by BitShares is highly dependent upon having a compatible transaction
+			<p>It should be noted that the tranasaction scalability achieved by BitShares is highly dependent upon having a compatible transaction
 			protocol. It would not be possible to achieve the same level of performance in a protocol where the Core Business Logic
 			is run in a virtual machine that performs cryptographic operations and references all objects with hash identifiers.
-			Blockchains are inherently single-threaded, and the performance of a single core of a CPU is the most limited and least
-			scalable resource of all. BitShares is designed to get the most out of this single thread of execution.</p>
+			Blockchains are inherently single-threaded, and the performance of a single core of a CPU is the most likely resource of all to limit
+			scalability. BitShares is designed to get the most out of this single thread of execution.</p>
 			<br />
-			<h4 id="background">Background</h4>
+			<h2 id="background">Background</h2>
 			<p>A blockchain is a global ledger that orders transactions, whereby each transaction deterministically modifies a shared global
 			state at a specified timestamp. The order in which transactions are processed can change the validity of other transactions.
 			For example, you cannot withdraw money from your bank account until after your paycheck deposit has cleared.
@@ -180,7 +180,7 @@
 			solution without fully exploring what is technologically possible on a single core of a single computer.</p>
 
 			<br />
-			<h4 id="lmax-disruptor">The LMAX Disruptor</h4>
+			<h2 id="lmax-disruptor">The LMAX Disruptor</h2>
 			<p>The LMAX Disruptor provides a case study on an architecture with a high degree of scalability and performance, showing what is achievable within a single execution thread. LMAX is a retail trading
 			platform that aims to be the fastest exchange in the world. They have been generous enough to share what they have
 			learned publicly.</p>
@@ -200,7 +200,7 @@
 			when they are not even processing 10 transactions per second.</p>
 
 			<br />
-			<h4 id="high-performance-blockchains">High Performance Blockchains</h4>
+			<h2 id="high-performance-blockchains">High Performance Blockchains</h2>
 			<p>To implement a high performance blockchain, BitShares must adopt the same techniques used by LMAX. Several key
 			fundementals must be met:</p>
 			<ul class="ml-50">
@@ -220,7 +220,7 @@
 			second if it is designed properly.</p>
 
 			<br />
-			<h4 id="avoid-hashes-assign-ids-instead">Avoid Hashes, Assign IDs Instead</h4>
+			<h2 id="avoid-hashes-assign-ids-instead">Avoid Hashes, Assign IDs Instead</h2>
 			<p>In a single threaded system, CPU cycles are a scarce resource that need to be conserved. Traditional blockchain designs
 			use cryptographic hashes to generate globally unique IDs that are statistically guaranteed to never have a collision.
 			The problem with these hashes is that they require significantly more memory and more CPU cycles to manipulate. It
@@ -233,7 +233,7 @@
 			balance, or permission.</p>
 
 			<br />
-			<h4 id="remove-signature-verification-from-business-logic-processor">Remove Signature Verification from Business Logic Processor</h4>
+			<h2 id="remove-signature-verification-from-business-logic-processor">Remove Signature Verification from Business Logic Processor</h2>
 			<p>All transactions on cryptocurrency networks depend upon cryptographic signatures to validate permissions. In the
 			general case, the permissions required can change as a result of other transactions. This means that permissions need
 			to be defined in terms that require no cryptographic calculations within the Business Logic Processor.</p>
@@ -244,7 +244,7 @@
 			<p>This same technique can be used to remove pre-condition checking on any immutable object with a static ID.</p>
 
 			<br />
-			<h4 id="design-transactions-for-static-validation">Design Transactions for Static Validation</h4>
+			<h2 id="design-transactions-for-static-validation">Design Transactions for Static Validation</h2>
 			<p>Many transaction properties can be checked statically, without the need to reference the current global state.<br/>
 			These checks include range checking of parameters, de-duplication of inputs, sort order of arrays, etc.
 			Generally speaking, many checks can be performed if the transaction includes the data it “assumes” about
@@ -253,7 +253,7 @@
 			objects referenced relative to the time the transaction was signed.</p>
 
 			<br />
-			<h4 id="smart-contracts">Smart Contracts</h4>
+			<h2 id="smart-contracts">Smart Contracts</h2>
 			<p>Many blockchains are adopting a general purpose scripting language to define all operations. These designs end up
 			defining the “Business Logic Processor” as a virtual machine and all transactions are defined as scripts to be run by
 			the virtual machine. This approach takes the single-threaded limitations of a real CPU and compounds them by forcing
@@ -269,7 +269,7 @@
 			which means the Virtual Machine should limit the addressable memory to something that will fit within the CPU cache.</p>
 
 			<br />
-			<h4 id="object-oriented-data-model">Object Oriented Data Model</h4>
+			<h2 id="object-oriented-data-model">Object Oriented Data Model</h2>
 			<p>One of the benefits of keeping everything in memory is that the software can be designed to mimic the real-world
 			relationships of data. This means that the Business Logic Processor can quickly follow in-memory pointers to the
 			data it needs, rather than being forced to perform expensive database queries. It also means that data can be accessed
@@ -277,7 +277,7 @@
 			performance gain over using a database-based approach.</p>
 
 			<br />
-			<h4 id="transaction-sizes">Transaction Sizes</h4>
+			<h2 id="transaction-sizes">Transaction Sizes</h2>
 			<p>A blockchain that processes 100,000 transactions every second generates a lot of data. The average size of
 			a transaction on competing networks, such as Ripple and Bitcoin, is about 250 bytes. A similar transaction on BitShares
 			averages just 100 bytes. In other words, competing systems require 2.5 times the bandwidth to propagate the
@@ -290,7 +290,7 @@
 			and only require the ordered list of transaction IDs to broadcast every block. This would be an implementation detail.</p>
 
 			<br />
-			<h4 id="conclusion">Conclusion</h4>
+			<h2 id="conclusion">Conclusion</h2>
 			<p>Designing a high-performance blockchain isn’t rocket-science, and doesn’t require complex, hard-to-understand protocols,
 			nor does it require dividing processing among all the nodes on the network. Instead, all that is necessary to build
 			a high-performance blockchain is to remove all calculations that are not part of the critical, order-dependent,
